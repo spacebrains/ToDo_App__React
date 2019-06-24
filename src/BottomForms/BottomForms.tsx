@@ -53,7 +53,11 @@ export const BottomForms: React.FC<IProps> = (data: IProps) => {
                 return (
                     <form onSubmit={onAddTask}>
                         <span>add Task</span>
-                        <input ref={(input: HTMLInputElement) => _task = input} type="text" required/>
+                        <input
+                            ref={(input: HTMLInputElement) => _task = input}
+                            type="text"
+                            required
+                        />
                         <button>ADD</button>
                     </form>
                 );
@@ -61,7 +65,11 @@ export const BottomForms: React.FC<IProps> = (data: IProps) => {
                 return (
                     <form onSubmit={onAddTaskWithSubTasks}>
                         <span>add task with subtasks</span>
-                        <input ref={(input: HTMLInputElement) => _task = input} type="text" required/>
+                        <input
+                            ref={(input: HTMLInputElement) => _task = input}
+                            type="text"
+                            required
+                        />
                         <button>ADD</button>
                     </form>
                 );
@@ -69,16 +77,27 @@ export const BottomForms: React.FC<IProps> = (data: IProps) => {
                 return (
                     <form onSubmit={onAddTaskWithTimer}>
                         <span>add task with timer</span>
-                        <input ref={(input: HTMLInputElement) => _task = input} type="text" required/>
-                        <input ref={(input: HTMLInputElement) => _datetime = input} type="datetime-local" required/>
+                        <input
+                            ref={(input: HTMLInputElement) => _task = input}
+                            type="text"
+                            required/>
+                        <input
+                            ref={(input: HTMLInputElement) => _datetime = input}
+                            type="datetime-local"
+                            required
+                        />
                         <button>ADD</button>
                     </form>
                 );
             case 'SubTask':
                 return (
                     <form onSubmit={onAddSubTask}>
-                        <span>addTask</span>
-                        <input ref={(input: HTMLInputElement) => _task = input} type="text" required/>
+                        <span>add subtask</span>
+                        <input
+                            ref={(input: HTMLInputElement) => _task = input}
+                            type="text"
+                            required
+                        />
                         <button>ADD</button>
                     </form>
                 );
@@ -88,14 +107,14 @@ export const BottomForms: React.FC<IProps> = (data: IProps) => {
     };
 
     return (
-        <>
+        <div className='BottomForms'>
             {bottom_panel_type ?
                 <>
                     {drawForm()}
                     <button onClick={onSetBottomPanelType}>X</button>
                 </>
                 : null}
-        </>
+        </div>
     );
 };
 

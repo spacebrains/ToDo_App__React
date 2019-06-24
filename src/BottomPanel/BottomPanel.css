@@ -1,0 +1,31 @@
+.BottomPanel{
+    margin-top:25px;
+    height: 28px;
+    /*flex*/
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.BottomPanel__label{
+    cursor:pointer;
+    padding: 0 10px;
+}
+
+.BottomPanel__radio{
+    display: none;
+}
+
+.BottomPanel__button{
+    height:100%;
+    width:120px;
+    background: #005aa1;
+    border:none;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    /*font*/
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    color: #fff;
+}

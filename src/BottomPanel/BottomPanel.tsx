@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './BottomPanel.css'
 
 interface IProps {
     deleteFinished: Function;
@@ -16,38 +17,41 @@ export const BottomPanel: React.FC<IProps> = ({deleteFinished, setBottomPanelTyp
     };
 
     return (
-        <>
+        <div className='BottomPanel'>
             <div>
-                <label>
+                <label className='BottomPanel__label'>
                     <input
                         type='radio'
                         name='addForm'
                         value='Task'
                         onClick={onSetBottomPanelType}
+                        className='BottomPanel__radio'
                     />
-                    Task
+                    <span>Task</span>
                 </label>
-                <label>
+                <label  className='BottomPanel__label'>
                     <input
                         type='radio'
                         name='addForm'
                         value='TaskWithSubTasks'
                         onClick={onSetBottomPanelType}
+                        className='BottomPanel__radio'
                     />
-                    Task with subtasks
+                    <span>Task with subtasks</span>
                 </label>
-                <label>
+                <label  className='BottomPanel__label'>
                     <input
                         type='radio'
                         name='addForm'
                         value='TaskWithTimer'
                         onClick={onSetBottomPanelType}
+                        className='BottomPanel__radio'
                     />
-                    Task with timer
+                    <span>Task with timer</span>
                 </label>
             </div>
-            <button onClick={onDeleteFinished}>Delete finished</button>
-        </>
+            <button onClick={onDeleteFinished} className='BottomPanel__button'>Delete finished</button>
+        </div>
     );
 };
 
