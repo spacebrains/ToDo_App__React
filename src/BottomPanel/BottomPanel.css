@@ -29,3 +29,15 @@
     font-size: 16px;
     color: #fff;
 }
+
+.BottomPanel__span_blue{
+    color: #0c7aa1;
+}
+
+.BottomPanel__span_green{
+    color: #008a33;
+}
+
+.BottomPanel__span_red{
+    color:#b20009;
+}

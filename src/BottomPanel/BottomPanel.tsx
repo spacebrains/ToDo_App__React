@@ -27,7 +27,7 @@ export const BottomPanel: React.FC<IProps> = ({deleteFinished, setBottomPanelTyp
                         onClick={onSetBottomPanelType}
                         className='BottomPanel__radio'
                     />
-                    <span>Task</span>
+                    <span className='BottomPanel__span_blue'>Task</span>
                 </label>
                 <label  className='BottomPanel__label'>
                     <input
@@ -37,7 +37,7 @@ export const BottomPanel: React.FC<IProps> = ({deleteFinished, setBottomPanelTyp
                         onClick={onSetBottomPanelType}
                         className='BottomPanel__radio'
                     />
-                    <span>Task with subtasks</span>
+                    <span className='BottomPanel__span_green'>Task with subtasks</span>
                 </label>
                 <label  className='BottomPanel__label'>
                     <input
@@ -45,9 +45,9 @@ export const BottomPanel: React.FC<IProps> = ({deleteFinished, setBottomPanelTyp
                         name='addForm'
                         value='TaskWithTimer'
                         onClick={onSetBottomPanelType}
-                        className='BottomPanel__radio'
+                        className='BottomPanel__radio '
                     />
-                    <span>Task with timer</span>
+                    <span className='BottomPanel__span_red'>Task with timer</span>
                 </label>
             </div>
             <button onClick={onDeleteFinished} className='BottomPanel__button'>Delete finished</button>

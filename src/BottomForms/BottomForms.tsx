@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './BottomForms.css'
 
 interface IProps {
     bottom_panel_type: 'Task' | 'TaskWithTimer' | 'TaskWithSubTasks' | 'SubTask' | '';
@@ -52,53 +53,62 @@ export const BottomForms: React.FC<IProps> = (data: IProps) => {
             case 'Task':
                 return (
                     <form onSubmit={onAddTask}>
-                        <span>add Task</span>
-                        <input
-                            ref={(input: HTMLInputElement) => _task = input}
-                            type="text"
-                            required
-                        />
-                        <button>ADD</button>
+                        <div className='BottomForms__input-container BottomForms_light-blue'>
+                            <input
+                                ref={(input: HTMLInputElement) => _task = input}
+                                type="text"
+                                className='BottomForms__input'
+                                required
+                            />
+                        </div>
+                        <button className='BottomForms__button'>ADD</button>
                     </form>
                 );
             case 'TaskWithSubTasks':
                 return (
                     <form onSubmit={onAddTaskWithSubTasks}>
-                        <span>add task with subtasks</span>
-                        <input
-                            ref={(input: HTMLInputElement) => _task = input}
-                            type="text"
-                            required
-                        />
-                        <button>ADD</button>
+                        <div className='BottomForms__input-container BottomForms_green'>
+                            <input
+                                ref={(input: HTMLInputElement) => _task = input}
+                                type="text"
+                                className='BottomForms__input'
+                                required
+                            />
+                        </div>
+                        <button className='BottomForms__button'>ADD</button>
                     </form>
                 );
             case 'TaskWithTimer':
                 return (
                     <form onSubmit={onAddTaskWithTimer}>
-                        <span>add task with timer</span>
-                        <input
-                            ref={(input: HTMLInputElement) => _task = input}
-                            type="text"
-                            required/>
-                        <input
-                            ref={(input: HTMLInputElement) => _datetime = input}
-                            type="datetime-local"
-                            required
-                        />
-                        <button>ADD</button>
+                        <div className='BottomForms__input-container BottomForms_red'>
+                            <input
+                                ref={(input: HTMLInputElement) => _task = input}
+                                type="text"
+                                className='BottomForms__input'
+                                required/>
+                            <input
+                                ref={(input: HTMLInputElement) => _datetime = input}
+                                type="datetime-local"
+                                className='BottomForms__input'
+                                required
+                            />
+                        </div>
+                        <button className='BottomForms__button'>ADD</button>
                     </form>
                 );
             case 'SubTask':
                 return (
                     <form onSubmit={onAddSubTask}>
-                        <span>add subtask</span>
-                        <input
-                            ref={(input: HTMLInputElement) => _task = input}
-                            type="text"
-                            required
-                        />
-                        <button>ADD</button>
+                        <div className='BottomForms__input-container BottomForms_blue'>
+                            <input
+                                ref={(input: HTMLInputElement) => _task = input}
+                                type="text"
+                                className='BottomForms__input'
+                                required
+                            />
+                        </div>
+                        <button className='BottomForms__button'>ADD</button>
                     </form>
                 );
             default:
@@ -111,7 +121,7 @@ export const BottomForms: React.FC<IProps> = (data: IProps) => {
             {bottom_panel_type ?
                 <>
                     {drawForm()}
-                    <button onClick={onSetBottomPanelType}>X</button>
+                    <button onClick={onSetBottomPanelType} className='BottomForms__button'>X</button>
                 </>
                 : null}
         </div>
