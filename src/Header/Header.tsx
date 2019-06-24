@@ -5,8 +5,8 @@ export const BottomPanel: React.FC = () => {
 
 
     return (
-       <header>
-           <h1>ToDo App</h1>
+       <header className='Header'>
+           <h1 className='Header__h1'>ToDo App</h1>
        </header>
     );
 };

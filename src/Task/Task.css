@@ -1,7 +1,29 @@
-.finished{
-    text-decoration: line-through;
+.Task{
+    margin:10px 0 0 0;
+    /*flex*/
+    display:flex;
+    align-items: center;
 }
 
-.notFinished{
+.Task__span{
+    font-size: 24px;
+}
+
+.Task-finished{
+    background-color: #005aa1;
+    color:white;
+}
+
+.Task-notFinished{
     text-decoration: none;
+}
+
+.deleteButton{
+    height: 25px;
+    width:25px;
+    background:none;
+    border:none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #b20009;
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Task, ITask} from "../Task/Task";
+import './TaskWithSubTasks.css'
 
 export interface ITaskWithSubTasks {
     type: 'TaskWithSubTasks';
@@ -26,16 +27,18 @@ export const TaskWithSubTasks: React.FC<IProps> = (data: IProps) => {
         setDateForTaskWithSubTasks(id);
     };
     return (
-        <>
+        <div className={finished ? 'TaskWithSubTasks TaskWithSubTasks-finished'
+            : 'TaskWithSubTasks TaskWithSubTasks-notFinished'}
+        >
             {console.log(subTasks)}
             <Task
                 id={id}
                 task={task}
                 finished={finished}
                 deleteTaskById={deleteTaskById}
-                finishById={finishById}
+                finishById={(f:any)=>f}
             />
-            <ul>
+            <ul className='TaskWithSubTasks__ul'>
                 {subTasks.map(subT =>
                     <li key={subT.id}>
                         <Task
@@ -46,8 +49,12 @@ export const TaskWithSubTasks: React.FC<IProps> = (data: IProps) => {
                             finishById={finishById}/>
                     </li>
                 )}
-                <button onClick={onSubmitPlus}>+</button>
+                <button
+                    onClick={onSubmitPlus}
+                    className={finished ? 'TaskWithSubTasks__button TaskWithSubTasks-finishedForB'
+                        : 'TaskWithSubTasks__button TaskWithSubTasks-notFinishedForB'}
+                >+</button>
             </ul>
-        </>
+        </div>
     );
 };

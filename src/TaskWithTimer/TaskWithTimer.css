@@ -1,0 +1,8 @@
+.Timer-finished{
+    background-color: #005aa1;
+    color:white;
+}
+
+.Timer-notFinished{
+    text-decoration: none;
+}

@@ -1,0 +1,13 @@
+.Header{
+    height: 80px;
+    background: #005aa1;
+    /*flex*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header__h1{
+    color:white;
+    font-size: 34px;
+}

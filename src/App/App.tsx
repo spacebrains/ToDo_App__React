@@ -48,9 +48,11 @@ class App extends React.PureComponent {
         const newTasks = this.state.tasks.map(t => {
             if (t.id === id)
                 return {...t, finished: !t.finished};
-            else if (t.type === 'TaskWithSubTasks')
-                return {...t, subTasks: t.subTasks.map(t => t.id === id ? {...t, finished: !t.finished} : t)};
-            else return t;
+            else if (t.type === 'TaskWithSubTasks') {
+                const newSubTasks = t.subTasks.map(t => t.id === id ? {...t, finished: !t.finished} : t);
+                const newFinished = newSubTasks.every(t => t.finished);
+                return {...t, finished: newFinished, subTasks: newSubTasks};
+            } else return t;
         });
         this.setState({...this.state, tasks: newTasks});
     };
@@ -59,7 +61,8 @@ class App extends React.PureComponent {
         const filterTasks = (tasks: Tasks) => tasks.filter(t => !t.finished);
         const newTasks =
             filterTasks(this.state.tasks)
-                .map(t => t.type === 'TaskWithSubTasks' ? {...t, subTasks: filterTasks(t.subTasks)} : t);
+                .map(t => t.type === 'TaskWithSubTasks' ? {...t, subTasks: filterTasks(t.subTasks)} : t)
+                .filter(t=>t.type!=='TaskWithTimer' || new Date() < new Date(t.finalTime));
         this.setState({...this.state, tasks: newTasks});
     };
 
@@ -151,25 +154,29 @@ class App extends React.PureComponent {
         return (
             <>
                 <Header/>
-                <Search setSearchCondition={this.setSearchCondition}/>
-                <TasksList
-                    tasks={this.state.search_condition ? this.search() : this.state.tasks}
-                    finishById={this.finishById}
-                    deleteTaskById={this.deleteTaskById}
-                    setDateForTaskWithSubTasks={this.setDateForTaskWithSubTasks}
-                />
-                <BottomPanel
-                    deleteFinished={this.deleteFinished}
-                    setBottomPanelType={this.setBottomPanelType}
-                />
-                <BottomForms
-                    bottom_panel_type={this.state.bottom_panel_type}
-                    setBottomPanelType={this.setBottomPanelType}
-                    addTask={this.addTask}
-                    addTaskWithSubTasks={this.addTaskWithSubTasks}
-                    addTaskWithTimer={this.addTaskWithTimer}
-                    addSubTask={this.addSubTasks}
-                />
+                <div className='App'>
+                    <div className='App__container'>
+                        <Search setSearchCondition={this.setSearchCondition}/>
+                        <TasksList
+                            tasks={this.state.search_condition ? this.search() : this.state.tasks}
+                            finishById={this.finishById}
+                            deleteTaskById={this.deleteTaskById}
+                            setDateForTaskWithSubTasks={this.setDateForTaskWithSubTasks}
+                        />
+                        <BottomPanel
+                            deleteFinished={this.deleteFinished}
+                            setBottomPanelType={this.setBottomPanelType}
+                        />
+                        <BottomForms
+                            bottom_panel_type={this.state.bottom_panel_type}
+                            setBottomPanelType={this.setBottomPanelType}
+                            addTask={this.addTask}
+                            addTaskWithSubTasks={this.addTaskWithSubTasks}
+                            addTaskWithTimer={this.addTaskWithTimer}
+                            addSubTask={this.addSubTasks}
+                        />
+                    </div>
+                </div>
             </>
         );
     }

@@ -1,0 +1,27 @@
+.TaskWithSubTasks__ul{
+    padding-left:20px;
+}
+
+.TaskWithSubTasks-finished{
+    background-color: #005aa1;
+    color:white;
+}
+
+.TaskWithSubTasks-notFinished{
+    text-decoration: none;
+}
+
+.TaskWithSubTasks__button{
+    height: 23px;
+    width:23px;
+    background:white;
+    border:none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #005aa1;
+    margin-left:15px;
+}
+
+.TaskWithSubTasks-finishedForB{
+    display: none;
+}

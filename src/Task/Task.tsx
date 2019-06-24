@@ -27,9 +27,9 @@ export const Task: React.FC<IProps> = (data: IProps) => {
     };
 
     return (
-        <>
-            <span onClick={finish} className={finished ? 'finished' : 'notFinished'}>{task}</span>
-            <button onClick={deleteTask}>X</button>
-        </>
+        <div className={finished ? 'Task Task-finished' : 'Task Task-notFinished'}>
+            <span onClick={finish} className='Task__span'>{task}</span>
+            <button onClick={deleteTask} className='deleteButton'>X</button>
+        </div>
     );
 };
